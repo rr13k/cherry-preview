@@ -1,0 +1,16 @@
+
+input{
+    width: calc(100% - 40px)
+}
+
+.fastLabel  {
+    > i:hover{
+        color: blue;
+    }
+}
+
+.fastInput{
+    > i:hover{
+        color: green;
+    }
+}

@@ -1,0 +1,40 @@
+h1 {
+    color: red;
+}
+
+.home{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(#8e9eab, #eef2f3);
+    position: fixed;
+    display: flex;
+}
+
+main{
+    overflow: hidden;
+    margin: 40px 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 8px 8px 30px #eceaea;
+    position: fixed;
+    left: 0;
+    display: flex;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    .mainBox{
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        display: flex;
+    }
+}
+
+body{
+    padding-left: 40px;
+
+}

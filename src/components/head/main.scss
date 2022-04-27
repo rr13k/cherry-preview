@@ -1,0 +1,72 @@
+.head{
+    margin: 20px 40px;
+    text-align: right;
+    line-height: 40px;
+
+    .user{
+        img{
+            margin-left: 10px;
+            width: 30px;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+        display: inline-block;
+        padding: 0 15px;
+    }
+
+    .menu{
+        float: left;
+        cursor: pointer;
+        color: #a2a2a2;
+    }
+
+    .menu:hover{
+        color: black;
+        transform: scale(1.1);
+    }
+
+    .hint{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        display: inline-block;
+        text-align: center;
+        line-height: 30px;
+        box-shadow: 4px 4px 10px #eceaea;
+        cursor: pointer;
+    }
+
+    .hint:hover{
+        animation: rock .5s infinite;
+    }
+}
+
+
+.debut-enter-active {
+    animation: debut .5s;
+}
+.debut-leave-active {
+    animation: debut .5s reverse;
+}
+@keyframes debut {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        transform: rotate(7deg);
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes rock {
+    50%{
+        transform: rotate(-15deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
