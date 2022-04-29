@@ -3,14 +3,13 @@
 
         <div class="case">
             <header>
-                <button class="cherryBtn" @click="createScript"> 创建脚本 </button>
-                <!-- <button @click="test">test</button> -->
+                <button class="cherryBtn" @click="createScript"> 新增脚本 </button>
+                <button @click="test">test</button>
             </header>
 
             <body>
                 <transition name="debut" appear>
-                    <el-table :data="caseList" max-height="100%" class="case_table">
-                        <el-table-column type="selection" width="55"> </el-table-column>
+                    <el-table :data="caseList" stripe max-height="100%" class="case_table">
                         <el-table-column prop="name" label="case">
                             <template #default="scope">
                                 <fastInput

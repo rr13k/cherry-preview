@@ -8,6 +8,7 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import { formatTime } from '@/utils/suger'
 // import { LiveConfig, RunConfig } from 'cherry-driver-socket/dist/typeApi'
 import { CherryLink } from '@/utils/cherryLink'
+import { WebDb } from '@/utils/webDb'
 
 const defineCaseConfig = {
     id: 0,
@@ -28,6 +29,8 @@ export enum RunStatus {
     success
 }
 
+var db: WebDb
+
 export default defineComponent({
     name: 'Index',
     components: {
@@ -38,6 +41,10 @@ export default defineComponent({
     },
     data() {
         return {
+            mydb: {
+                name:'cherry',
+                varsion:1,
+            },
             localCherry: {
                 show: false // 默认不渲染可能不会进行本地操作
             },
@@ -78,12 +85,24 @@ export default defineComponent({
         }
     },
     mounted() {
+        /**
+         * desc:
+         *      首先检测如果是第一次进入的话,提供示例项目。并提供使用引导。
+         * 如果本地没有库则代表第一次使用
+         */
+        db = new WebDb(window.indexedDB.open('cherry', this.mydb.varsion))
+        // this.checkFrist()
         this.projectId = Number(this.$route.params.project_id)
         this.getTableData()
         this.cherryLink = new CherryLink()
         console.log('caseList', this.caseList)
     },
     methods: {
+        test() {
+            // 新增脚本
+            console.log('新增脚本')
+            db.addCase({name:'nih22ao',id:34})
+        },
         /**
          * @method 保存编辑脚本
          */
@@ -99,6 +118,24 @@ export default defineComponent({
             //         ElMessage.success('保存成功')
             //         this.getTableData()
             //     })
+        },
+        /**
+         * @method  是否第一次使用
+         */
+        checkFrist() :boolean {
+            var request = window.indexedDB.open(this.mydb.name, this.mydb.varsion);
+            request.onerror = function (event) {
+                console.log('数据库打开报错');
+            };
+
+            var db;
+            request.onsuccess = function (event) {
+                db = request.result;
+                //db = event.target.result; 也能拿到
+                console.log('数据库打开成功');
+            };
+
+            return true
         },
         showRunReport(id: number) {
             console.log('显示运行记录')

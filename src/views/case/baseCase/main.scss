@@ -37,16 +37,16 @@
 }
 
 .cherryBtn{
-    background-color: #ffffff;
-    border: solid 1px;
+    border-style: none;
+    background-color: #ef2929;
     border-radius: 5px;
-    color: #969696;
+    color: #ffffff;
+    padding: 10px 20px;
     &:hover{
-     color: red;
+        color: #fffafa;
+        background-color: #d80606;
     }
 }
-
-
 
 .iconBtn:hover{
     color: red;
