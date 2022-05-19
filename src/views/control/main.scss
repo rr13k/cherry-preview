@@ -1,0 +1,138 @@
+.control{
+    display: flex;
+    flex: 1;
+    height: 100%;
+
+    >main{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        overflow: auto;
+        flex: 1;
+    }
+    >aside{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        width: 600px;
+        margin-left: 10px;
+    }
+}
+
+.card{
+    text-align: left;
+    border: solid 1px #e3e1e1;
+    width: 100%;
+    border-radius: 10px;
+    header{
+        background-color: #f7f7f7;
+        border-radius: 10px;
+        line-height: 40px;
+        button{
+            float: right;
+            margin-right: 10px;
+            margin-top: 8px;
+        }
+        b{
+            padding-left: 10px;
+        }
+    }
+    main{
+        min-height: 60px;
+        padding-left: 10px;
+    }
+}
+
+
+.tagBox{
+    margin-top: 10px;
+    .tag{
+        margin: 0 5px;
+        cursor: pointer;
+        user-select: none;
+    }
+}
+
+.save {
+    color: #636363;
+    background-color: white;
+    border: solid 1px #d4d4fc;
+    padding: 3px;
+    &:hover{
+        background-color: rgb(238, 237, 237);
+        color: black;
+    }
+}
+
+.btns{
+    display: flex;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    z-index: 99999;
+    flex-direction: row-reverse;
+    button {
+        border-style: none;
+        background-color: #ef2929;
+        border-radius: 5px;
+        color: #ffffff;
+        padding: 10px 20px;
+        opacity: 0.8;
+        margin: 5px;
+        &:hover {
+            filter: alpha(Opacity=100);
+            opacity: 1;
+            cursor: pointer;
+        }
+    }
+    .cancel{
+        background-color: #f0f0f0;
+        color: #ff4343;
+    }
+}
+
+.codeCard{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-top: 10px;
+    overflow-y: auto;
+}
+
+.precode{
+    height: 400px;
+}
+
+.log-editor-container{
+    padding:10px;
+    white-space: pre;
+    filter: invert(1);
+    min-height: 300px;
+    height: 100%;
+}
+
+.codeIde{
+    // flex: 1;
+    height: calc(100% - 90px);
+}
+
+.debut-enter-active {
+    animation: debut .5s;
+    overflow:hidden;
+}
+.debut-leave-active {
+    animation: debut .5s reverse;
+    overflow:auto;
+}
+
+@keyframes debut {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        transform: rotate(7deg);
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

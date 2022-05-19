@@ -15,5 +15,8 @@ export default defineComponent({
             // @ts-ignore
             this.shows.sidebar = !this.shows.sidebar
         },
+        toDoc() {
+            window.open('https://dqa.jd.com/cherry')
+        }
     }
 })

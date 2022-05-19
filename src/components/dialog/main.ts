@@ -3,12 +3,15 @@ import { defineComponent, computed } from 'vue'
 export default defineComponent({
     name: 'Dialog',
     props: {
-        width: String,
         fullscreen: Boolean,
         beforClose: Function,
         title: {
             type: String,
             default: ''
+        },
+        width: {
+            type: String,
+            default: '50%'
         },
         top: {
             type: String,

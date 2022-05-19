@@ -36,17 +36,7 @@
     }
 }
 
-.cherryBtn{
-    border-style: none;
-    background-color: #ef2929;
-    border-radius: 5px;
-    color: #ffffff;
-    padding: 10px 20px;
-    &:hover{
-        color: #fffafa;
-        background-color: #d80606;
-    }
-}
+
 
 .iconBtn:hover{
     color: red;
@@ -60,6 +50,7 @@
 .createHint{
     display: flex;
     flex-direction: row;
+    max-width: 400px;
     >div{
         flex: 1;
         cursor: pointer;
@@ -129,5 +120,42 @@ table{
     }
     100% {
         opacity: 1;
+    }
+}
+
+header{
+    .empty{
+        background-color: #d7d5d5;
+        color: #303030;
+    }
+    .empty:hover{
+        background-color: #d7d7d7;
+        color: black;
+    }
+}
+
+
+.cherryBtn{
+    border-style: none;
+    background-color: #ef2929;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 10px 20px;
+    opacity: 0.8;
+    margin-left: 10px;
+    &:hover{
+        color: #fffafa;
+        background-color: #d80606;
+        opacity: 1;
+    }
+
+    &.cancel{
+        background-color: #f0f0f0;
+        color: #ff4343;
+    }
+
+    &.cancel:hover{
+        color: #ff4343;
+        background-color: #e7dfdf;
     }
 }

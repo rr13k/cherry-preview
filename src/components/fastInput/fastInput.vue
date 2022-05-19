@@ -2,8 +2,8 @@
     <transition name='debut'>
         <div>
             <div v-if="show" class="fastLabel">
-                <i class="iconfont iconlightning-01" @click="startEdit"></i>
-                <span>{{label}}</span>
+                <i class="iconfont iconlightning-01" @click.stop="startEdit"></i>
+                <span @click.stop="click">{{label}}</span>
             </div>
             <div v-else class="fastInput">
                 <input type="text" v-model="newLabel"
@@ -19,7 +19,7 @@
 </template>
 
 <script lang='ts'>
-    import main from './main.ts'
+    import main from './main'
     export default main
 </script>
 

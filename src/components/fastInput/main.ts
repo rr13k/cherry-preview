@@ -1,5 +1,3 @@
-import { number } from 'echarts'
-import { domain } from 'process'
 import { defineComponent, ref, Ref } from 'vue'
 
 export default defineComponent({
@@ -18,7 +16,7 @@ export default defineComponent({
             default: false
         }
     },
-    emits: ['change'],
+    emits: ['change','click'],
     data() {
         return {
             show: true,
@@ -48,6 +46,9 @@ export default defineComponent({
             setTimeout(() => {
                 this.cancel()
             }, 100)
+        },
+        click(){
+            this.$emit('click')
         },
         submit() {
             if (this.label !== this.newLabel) {

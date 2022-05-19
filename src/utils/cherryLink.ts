@@ -28,12 +28,27 @@ export interface RunConfig {
 
 export class CherryLink {
     private link: string
-    socket: WebSocket
+    socket?: WebSocket
     private _uid: number // 动态id,调用后递增
     constructor(addr = 'ws://127.0.0.1', port = 8888) {
         this.link = `${addr}:${port}`
-        this.socket = new WebSocket(this.link)
         this._uid = 0
+        this.connect()
+    }
+
+    async connect() {
+        return new Promise((resolve, reject)=>{
+            this.socket = new WebSocket(this.link)
+            this.socket.onclose = () => {
+            }
+            this.socket.onerror = function(ev) {
+                console.warn('未检测到cherry连接!')
+                resolve(false)
+            }
+            this.socket.onopen = ()=>{
+                resolve(true)
+            }
+        })
     }
 
     /**
@@ -45,8 +60,12 @@ export class CherryLink {
 
     async check(): Promise<boolean> {
         let resulet = false
-        if (this.socket.readyState === 1) {
+        if (this.socket?.readyState === 1) {
             // 检查连接
+            return true
+        }
+        
+        if (await this.connect()) {
             return true
         }
 
@@ -140,13 +159,13 @@ export class CherryLink {
             const onCall = (msg: any) => {
                 const result = JSON.parse(msg.data)
                 if (result.storage && result.storage.__uid === call_uid) {
-                    this.socket.removeEventListener('message', onCall)
+                    this.socket?.removeEventListener('message', onCall)
                     delete result.storage.__uid // 删除内部标识
                     resolve(JSON.stringify(result))
                 }
             }
-            this.socket.addEventListener('message', onCall)
-            this.socket.send(JSON.stringify(action))
+            this.socket?.addEventListener('message', onCall)
+            this.socket?.send(JSON.stringify(action))
         })
     }
 

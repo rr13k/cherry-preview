@@ -28,7 +28,7 @@
 </template>
 
 <script lang='ts'>
-    import main from './main.ts'
+    import main from './main'
     export default main
 </script>
 

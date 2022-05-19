@@ -10,7 +10,7 @@
             </div>
         </transition>
         <transition name='debut' appear>
-            <i class='hint iconfont icon_tishi' ></i>
+            <i class='hint iconfont icon_tishi' @click="toDoc" ></i>
         </transition>
     </div>
 </template>
