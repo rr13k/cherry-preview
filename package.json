@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build && mv ./dist/cherry-preview/monacoeditorwork ./dist && rm -rf ./dist/cherry-preview && rm -rf /Users/renran/work/test/cherry-preview/*  && cp -r ./dist/* /Users/renran/work/test/cherry-preview",
+    "fast": "vue-tsc --noEmit && vite build && mv ./dist/cherry-preview/monacoeditorwork ./dist && rm -rf ./dist/cherry-preview && rm -rf /Users/renran/work/test/cherry-preview/*  && cp -r ./dist/* /Users/zhouyuan11/work/cherry/cherry-preview",
     "preview": "vite preview"
   },
   "dependencies": {

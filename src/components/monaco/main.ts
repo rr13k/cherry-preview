@@ -64,6 +64,7 @@ export default defineComponent({
                 value: this.script,
                 language: this.language,
                 scrollBeyondLastLine: false,
+                fixedOverflowWidgets: true,
                 ...this.config
             })
 
