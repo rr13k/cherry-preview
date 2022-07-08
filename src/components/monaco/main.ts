@@ -54,8 +54,9 @@ export default defineComponent({
                 declare const dom :FCherryDom
                 declare const browser :FCherryBrowser
                 declare const assert :FCherryAssert
-                declare const sleep :(ms:number)=> void
-                 `
+                declare const sleep :(ms:number)=> Promise<void>
+                declare const execJavaScript :(script:string) => Promise<any>
+                `
                 ].join('\n');
                 var libUri = 'ts:filename/cherry.d.ts';
                 monaco.languages.typescript.javascriptDefaults.addExtraLib(libSource, libUri);
